@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <title>Forma</title>
+</head>
+<body>
+    <form id="myForm">
+        <div class="form-section">
+            <h2>Protokol</h2>
+            <label for="fsNumber" class="numbered-label">1. Broj FS:</label>
+            <input type="text" id="fsNumber" >
+            
+            <label for="date" class="numbered-label">2. Datum terena:</label>
+            <input type="date" id="date" >
+            
+            <label for="location" class="numbered-label">3. Lokalitet:</label>
+            <input type="text" id="location" >
+            
+            <label for="sublocation1" class="numbered-label">4. Sublokalitet1:</label>
+            <input type="text" id="sublocation1" >
+            
+            <label for="sublocation2" class="numbered-label">5. Sublokalitet2:</label>
+            <input type="text" id="sublocation2" >
+            
+            <label for="participants" class="numbered-label">6. Učestvovali:</label>
+            <input type="text" id="participants" >
+
+            <label for="habitat">18. Tip staništa:</label>
+            <input type="text" id="habitat">
+            
+            <label for="lighting" class="numbered-label">7. Osvetljenost:</label>
+            <select id="lighting">
+                <option value="Da">Da</option>
+                <option value="Ne">Ne</option>
+                <option value="Između">Između</option>
+            </select>
+            
+            <label for="threatFactor" class="numbered-label">8. Faktor ugrožavanja:</label>
+            <input type="text" id="threatFactor">
+            
+            <label for="fsSize" class="numbered-label">10. Površina FS:</label>
+            <select id="fsSize" >
+                <option value="5x5">5x5</option>
+                <option value="3x3">3x3</option>
+                <option value="10x10">10x10</option>
+                <option value="Other">Other</option>
+            </select>
+
+            
+            <label for="note" class="numbered-label">9. Napomena:</label>
+            <textarea id="note"></textarea>
+        </div>
+        
+        <div class="form-section">
+            <h2>GPS informacije</h2>
+            <label for="gpsNumber" class="numbered-label">12. Broj GPS tačke:</label>
+            <input type="text" id="gpsNumber">
+            
+            <label for="latitude" class="numbered-label">13. Latitude:</label>
+            <input type="text" id="latitude">
+            
+            <label for="longitude" class="numbered-label">14. Longitude:</label>
+            <input type="text" id="longitude">
+            
+            <label for="altitude" class="numbered-label">15. Nadmorska visina (m):</label>
+            <input type="text" id="altitude" >
+            
+            <label for="exposure" class="numbered-label">16. Ekspozicija:</label>
+            <select id="exposure">
+                <option value="N">N</option>
+                <option value="NE">NE</option>
+                <option value="E">E</option>
+                <option value="SE">SE</option>
+                <option value="S">S</option>
+                <option value="SW">SW</option>
+                <option value="W">W</option>
+                <option value="NW">NW</option>
+                <option value="Bez ekspozicije">Bez ekspozicije</option>
+            </select>
+            
+            <label for="slope" class="numbered-label">17. Nagib:</label>
+            <input type="text" id="slope">
+
+        </div>
+        
+        <div class="form-section">
+            <h2>Taksoni</h2>
+            <div id="taxa-container">
+                <!-- Taxon entries will be added here dynamically -->
+            </div>
+            <div class="button-container">
+                <button id="addTaxonButton">Dodaj takson</button>
+                <button id="removeTaxonButton">Ukloni takson</button>
+            </div>
+
+        </div>
+        <div class="submit-wraper">
+            <input type="submit" class="submit-button" value="Submit">
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

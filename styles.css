@@ -1,0 +1,317 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * TABLE OF CONTENT
+ *
+ * Custom properties..............Global variables
+ * Reset..........................Removed browser default style
+ * Typography.....................Typography style
+ * Reused.........................Reused classes
+ * Preloader......................Preload style
+ * Header.........................Header style
+ * Footer.........................Footer style
+ * Media queries..................Responsive for all devices
+ */
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+ :root {
+    /*
+    * colors
+    */
+  
+    --violet-blue-crayola: hsla(234, 50%, 64%, 1);
+    --dark-cornflower-blue_a7: hsla(214, 88%, 27%, 0.07);
+    --white: hsla(0, 0%, 100%, 1);
+    --white_a3: hsla(0, 0%, 100%, 0.03);
+    --white_a8: hsla(0, 0%, 100%, 0.08);
+    --white_a12: hsla(0, 0%, 100%, 0.12);
+    --white_a70: hsla(0, 0%, 100%, 0.7);
+    --cultured: hsla(220, 20%, 97%, 1);
+    --lavender-web: hsla(233, 52%, 94%, 1);
+    --cadet-blue-crayola: hsla(220, 12%, 70%, 1);
+    --cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
+    --charcoal: hsla(218, 22%, 26%, 1);
+    --raisin-black: hsla(216, 14%, 14%, 1);
+    --light-gray: hsla(0, 0%, 79%, 1);
+    --blue-crayola: hsla(219, 72%, 56%, 1);
+    --black-coral: hsla(220, 12%, 43%, 1);
+    --maximum-yellow-red_a10: hsla(41, 99%, 64%, 0.1);
+    --maximum-yellow-red_a40: hsla(41, 99%, 64%, 0.4);
+    --maximum-yellow-red: hsl(41, 99%, 64%);
+    --orange-red_a20: hsla(19, 100%, 55%, 0.2);
+    --eerie-black: hsl(210, 11%, 15%);
+    --orange-red: hsl(19, 100%, 55%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --light-gray: hsl(0, 0%, 80%);
+    --white_a80: hsla(0, 0%, 100%, 0.8);
+    --white_a75: hsla(0, 0%, 100%, 0.75);
+    --white_a10: hsla(0, 0%, 100%, 0.1);
+    --jet_a10: hsla(0, 0%, 22%, 0.1);
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --jet: hsl(0, 0%, 22%);
+  
+    /*
+    * typography
+    */
+  
+    --ff-jost: 'Jost', sans-serif;
+    --ff-manrope: 'Manrope', sans-serif;
+  
+    --fs-45: 4.5rem;
+    --fs-38: 3.8rem;
+    --fs-32: 3.2rem;
+    --fs-27: 2.7rem;
+    --fs-26: 2.6rem;
+    --fs-22: 2.2rem;
+    --fs-20: 2rem;
+    --fs-18: 1.8rem;
+    --fs-17: 1.7rem;
+    --fs-14: 1.4rem;
+    --fs-12: 1.2rem;
+    --fs-1: calc(2.7rem + 1.38vw);
+    --fs-2: calc(2.6rem + .66vw);
+    --fs-3: 2.2rem;
+    --fs-4: 1.9rem;
+    --fs-5: 1.8rem;
+    --fs-6: 1.7rem;
+    --fs-7: 1.5rem;
+    --fs-8: 1.4rem;
+  
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+  
+    /*
+    * spacing
+    */
+  
+    --section-padding: 90px;
+  
+    /*
+    * box shadow
+    */
+  
+    --shadow: 0 2px 2px hsla(0, 0%, 22%, 0.08);
+    --shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+    --shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08), 0 0 1.25rem hsla(216, 14%, 14%, 0.06);
+    --shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
+  
+    /*
+    * border radius
+    */
+  
+    --radius-50: 50px;
+    --radius-circle: 50%;
+    --radius-pill: 100px;
+    --radius-10: 10px;
+    --radius-8: 8px;
+    --radius-6: 6px;
+  
+    /*
+    * transition
+    */
+  
+    --transition-1: 0.25s ease;
+    --transition-2: 0.5s ease;
+    --transition-3: 0.3s ease-in-out;
+    --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+  }
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a background color and font-family to the entire page */
+html {
+    font-family: var(--ff-manrope);
+    font-size: 1rem;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+
+body {
+    background-color: var(--white_a80);
+    color: var(--black);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+::-webkit-scrollbar {width: 10px;}
+
+::-webkit-scrollbar-track {background-color: hsl(0, 0%, 98%);}
+
+::-webkit-scrollbar-thumb {background-color: hsl(0, 0%, 80%);}
+
+::-webkit-scrollbar-thumb:hover {background-color: hsl(0, 0%, 70%);}
+
+/* Center the form and add a subtle shadow */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white_a10);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form headings */
+h2 {
+    font-size: var(--fs-18);
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+/* Style input fields, selects, and textareas */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius-6);
+    background-color: var(--white_a80);
+    font-size: 1rem;
+    color: var(--black)
+}
+
+/* Style radio buttons and checkboxes */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Style submit button */
+input[type="submit"] {
+    background-color: var(--blue-crayola);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: var(--radius-6);
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style form sections with a background color */
+.form-section {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-6);
+    margin-bottom: 1.5rem;
+}
+
+/* Style field labels */
+label {
+    font-weight: var(--fw-700);
+}
+
+/* Style select elements */
+select {
+    background-color: var(--white);
+}
+
+/* Style error messages */
+.error-message {
+    color: #ff0000;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Style the "Add" and "Remove" buttons */
+button {
+    background-color: #007bff;
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the "Add" and "Remove" buttons */
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    gap: 1rem;
+}
+
+.button-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust margin between the buttons */
+.button-container button:last-child {
+    margin-right: 0;
+}
+
+/* Adjust button width for responsiveness */
+@media (max-width: 768px) {
+    .button-container button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Style the "Submit" button */
+.submit-button {
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: var(--radius-6);
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center;
+    width: calc(100% - 48px);
+    margin-top: 1rem;
+}
+
+.submit-wraper{
+    display: flex;
+    justify-content: center;
+}
