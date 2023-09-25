@@ -1,7 +1,7 @@
 // Counter to generate unique IDs
 let taxonCounter = 0;
 
-const baseURL = "phdprotokol-production.up.railway.app/"; // Replace with your GitHub Pages URL
+const baseURL = "https://phdprotokol-production.up.railway.app"; // Replace with your GitHub Pages URL
 
 // Create an object to store the form data
 let formData = {
