@@ -47,7 +47,7 @@ const protokoliSchema = new mongoose.Schema({
 // Create a model for the "PhD_protokoli" collection
 const Protokol = mongoose.model("PhD_protokoli", protokoliSchema, "protokol");
 
-app.use(express.static());
+app.use(express.json());
 
 // Define a route to serve the HTML form
 app.get("/", (req, res) => {
