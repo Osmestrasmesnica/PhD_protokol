@@ -146,7 +146,6 @@ html {
 
 body {
     background-color: var(--white_a80);
-    background-color: red;
     color: var(--black);
     line-height: 1.6;
     font-size: 1rem;
