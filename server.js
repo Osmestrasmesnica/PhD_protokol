@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
 });
 
 // Define a route to handle POST requests with JSON data
-app.post("/saveData", async (req, res) => {
+app.post("https://osmestrasmesnica.github.io/PhD_protokol/", async (req, res) => {
   try {
     const formData = req.body; // JSON data from the form
 
