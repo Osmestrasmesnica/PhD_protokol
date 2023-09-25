@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/PhD_Aleksa", {
+mongoose.connect("mongodb+srv://WLQ_admin:password1234@wlq.tjsqmzy.mongodb.net/PhD_Aleksa", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -45,7 +45,7 @@ const protokoliSchema = new mongoose.Schema({
 });
 
 // Create a model for the "PhD_protokoli" collection
-const Protokol = mongoose.model("PhD_protokoli", protokoliSchema, "protokol_phd_wlq");
+const Protokol = mongoose.model("PhD_protokoli", protokoliSchema, "protokol");
 
 app.use(express.json());
 
