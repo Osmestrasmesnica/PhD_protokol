@@ -83,6 +83,18 @@ document.getElementById("removeTaxonButton").addEventListener("click", function 
   removeTaxon();
 });
 
+// Add a function to show the success message
+function showSuccessMessage() {
+  const successMessage = document.getElementById("success-message");
+  successMessage.textContent = "Data successfully added to the database.";
+  successMessage.style.display = "block";
+}
+
+// Reset the form after success
+function resetForm() {
+  document.getElementById("myForm").reset();
+}
+
 // Add a listener to the form submission
 document.getElementById("myForm").addEventListener("submit", function (event) {
   event.preventDefault();
@@ -139,6 +151,8 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
     .then((data) => {
       console.log(data);
       // Optionally, you can perform actions after data is successfully saved
+      showSuccessMessage(); // Show success message
+      resetForm(); // Reset the form
     })
     .catch((error) => {
       console.error("Fetch error:", error);
