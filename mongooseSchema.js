@@ -29,7 +29,7 @@ const myCollectionSchema = new mongoose.Schema({
 });
 
 // Create a model for the "MyCollection" collection
-const MyModel = mongoose.model('MyCollection', myCollectionSchema);
+const MyModel = mongoose.model('MyCollection', myCollectionSchema, "nameofcollection");
 
 // Export the model for use in your application
 module.exports = MyModel;
