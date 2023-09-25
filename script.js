@@ -138,7 +138,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   }
 
   // Send the JSON data to the server using fetch
-  fetch(`/saveData`, {
+  fetch(`/PhD_protokol`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
