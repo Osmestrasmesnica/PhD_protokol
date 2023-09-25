@@ -1,9 +1,6 @@
 // Counter to generate unique IDs
 let taxonCounter = 0;
 
-const baseURL = "https://osmestrasmesnica.github.io/PhD_protokol/"; // Replace with your GitHub Pages URL
-const baseURL1 = "https://osmestrasmesnica.github.io"; // or with this i don't know
-
 // Create an object to store the form data
 let formData = {
   taxa: [],
@@ -138,7 +135,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   }
 
   // Send the JSON data to the server using fetch
-  fetch(`${baseURL}/saveData`, {
+  fetch("/saveData", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
