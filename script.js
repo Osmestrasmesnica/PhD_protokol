@@ -138,7 +138,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   }
 
   // Send the JSON data to the server using fetch
-  fetch(`${baseURL}`, {
+  fetch("/saveData", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
