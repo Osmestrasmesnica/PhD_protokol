@@ -12,55 +12,104 @@ function addTaxon() {
   const taxonDiv = document.createElement("div");
   taxonDiv.className = "taxon-entry";
 
+  // Label for "Takson"
+  const taxonNameLabel = document.createElement("label");
+  taxonNameLabel.textContent = "Takson";
+  taxonNameLabel.setAttribute("for", "taxon-name-" + taxonCounter);
+
   const taxonNameInput = document.createElement("input");
   taxonNameInput.type = "text";
-  taxonNameInput.placeholder = "Ime taksona";
+  taxonNameInput.placeholder = "Unesite naziv taksona..";
   taxonNameInput.id = "taxon-name-" + taxonCounter; // Unique ID for taxon name
   taxonNameInput.className = "taxon-name";
 
-  const taxonBInput = document.createElement("input");
-  taxonBInput.type = "number";
-  taxonBInput.min = "1";
-  taxonBInput.max = "4";
-  taxonBInput.id = "brojnost-" + taxonCounter; // Unique ID for brojnost
-  taxonBInput.placeholder = "Vrednost za B";
-  taxonBInput.className = "taxon-b";
+  // Label for taxonBInput
+  const taxonBLabel = document.createElement("label");
+  taxonBLabel.textContent = "Brojnost";
+  taxonBLabel.setAttribute("for", "brojnost-" + taxonCounter);
 
-  const taxonPInput = document.createElement("input");
-  taxonPInput.type = "number";
-  taxonPInput.min = "1";
-  taxonPInput.max = "7";
-  taxonPInput.id = "pokrovnost-" + taxonCounter; // Unique ID for pokrovnost
-  taxonPInput.placeholder = "Vrednost za P";
+  const taxonBInput = document.createElement("select");
+  taxonBInput.className = "taxon-b";
+  taxonBInput.id = "brojnost-" + taxonCounter; // Unique ID for brojnost
+
+  const taxonBoptions = [
+    createOptionWithTooltip("1", "1", "1 - 1 do 5 jedinki"),
+    createOptionWithTooltip("2", "2", "2 - 6 do 20 jedinki"),
+    createOptionWithTooltip("3", "3", "3 - 21 do 50 jedinki"),
+    createOptionWithTooltip("4", "4", "4 - 50+ jedinki"),
+  ];
+
+  for (const option of taxonBoptions) {
+    taxonBInput.appendChild(option);
+  }
+
+  // Label for taxonPInput
+  const taxonPLabel = document.createElement("label");
+  taxonPLabel.textContent = "Pokrovnost";
+  taxonPLabel.setAttribute("for", "pokrovnost-" + taxonCounter);
+
+  const taxonPInput = document.createElement("select");
   taxonPInput.className = "taxon-p";
+  taxonPInput.id = "pokrovnost-" + taxonCounter; // Unique ID for pokrovnost
+
+  const taxonPoptions = [
+    createOptionWithTooltip("1", "1", "1 - jedna slucajna/BB-r"),
+    createOptionWithTooltip("2", "2", "2 - <1%, vise nji/ BB-+"),
+    createOptionWithTooltip("3", "3", "3 - 1 do 10%/BB-1"),
+    createOptionWithTooltip("4", "4", "4 - 11% do 25%/BB-2"),
+    createOptionWithTooltip("5", "5", "5 - 26% do 50%/BB-3"),
+    createOptionWithTooltip("6", "6", "6 - 51% do 75%/BB-4"),
+    createOptionWithTooltip("7", "7", "7 - 76% do 100%/BB7"),
+  ];
+
+  for (const option of taxonPoptions) {
+    taxonPInput.appendChild(option);
+  }
+
+  // Label for taxonSInput
+  const taxonSLabel = document.createElement("label");
+  taxonSLabel.textContent = "Spratovnost";
+  taxonSLabel.setAttribute("for", "taxon-s-" + taxonCounter);
 
   const taxonSInput = document.createElement("select");
   taxonSInput.className = "taxon-s";
   taxonSInput.id = "taxon-s-" + taxonCounter; // Unique ID for taxon select
-  const taxonSOptions = ["A1", "A2", "B1", "B2", "C", "C1"];
+
+  const taxonSOptions = [
+    createOptionWithTooltip("A1", "A1", "A1 - drvece 20m+"),
+    createOptionWithTooltip("A2", "A2", "A2 - drvece 10-20m"),
+    createOptionWithTooltip("B1", "B1", "B1 - zbunje 5-10m"),
+    createOptionWithTooltip("B2", "B2", "B2 - zbunje 1-5m"),
+    createOptionWithTooltip("C", "C", "C - zeljasta vegetacija"),
+    createOptionWithTooltip("C1", "C1", "C1 - mahovine"),
+  ];
+
   for (const option of taxonSOptions) {
-    const optionElement = document.createElement("option");
-    optionElement.value = option;
-    optionElement.text = option;
-    taxonSInput.appendChild(optionElement);
+    taxonSInput.appendChild(option);
   }
 
+  taxonDiv.appendChild(taxonNameLabel); // Append label before input
   taxonDiv.appendChild(taxonNameInput);
+  taxonDiv.appendChild(taxonBLabel); // Append label before input
   taxonDiv.appendChild(taxonBInput);
+  taxonDiv.appendChild(taxonPLabel); // Append label before input
   taxonDiv.appendChild(taxonPInput);
+  taxonDiv.appendChild(taxonSLabel); // Append label before input
   taxonDiv.appendChild(taxonSInput);
 
+  // Append the taxonDiv to the taxaContainer or any other desired container.
   taxaContainer.appendChild(taxonDiv);
 
   // Increment the counter
   taxonCounter++;
+}
 
-  // Log the generated IDs
-  console.log("Generated IDs for Taxon " + taxonCounter + ":");
-  console.log("Taxon Name ID: taxon-name-" + taxonCounter);
-  console.log("Brojnost ID: brojnost-" + taxonCounter);
-  console.log("Pokrovnost ID: pokrovnost-" + taxonCounter);
-  console.log("Taxon Select ID: taxon-s-" + taxonCounter);
+function createOptionWithTooltip(value, text, tooltip) {
+  const option = document.createElement("option");
+  option.value = value;
+  option.text = text;
+  option.title = tooltip;
+  return option;
 }
 
 // Define a function to remove the last taxon input field
