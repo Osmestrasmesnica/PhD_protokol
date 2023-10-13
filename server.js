@@ -19,7 +19,7 @@ const db = mongoose.connection;
 // Define a schema for the "PhD_protokoli" collection
 const protokoliSchema = new mongoose.Schema({
   // Define your schema fields here based on your JSON structure
-  fsNumber: String,
+    fsNumber: String,
     date: Date,
     location: String,
     sublocation1: String,
@@ -28,6 +28,7 @@ const protokoliSchema = new mongoose.Schema({
     lighting: String,
     threatFactor: String,
     note: String,
+    gpsNumber: String,
     fsSize: String,
     latitude: Number,
     longitude: Number,

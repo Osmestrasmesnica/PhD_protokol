@@ -158,6 +158,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   formData.lighting = document.getElementById("lighting").value;
   formData.threatFactor = document.getElementById("threatFactor").value;
   formData.note = document.getElementById("note").value;
+  formData.note = document.getElementById("gpsNumber").value;
   formData.fsSize = document.getElementById("fsSize").value;
   formData.latitude = document.getElementById("latitude").value;
   formData.longitude = document.getElementById("longitude").value;
