@@ -28,7 +28,7 @@ const protokoliSchema = new mongoose.Schema({
     lighting: String,
     threatFactor: String,
     note: String,
-    gpsNumber: Number,
+    gpsNumber: String,
     fsSize: String,
     latitude: Number,
     longitude: Number,
