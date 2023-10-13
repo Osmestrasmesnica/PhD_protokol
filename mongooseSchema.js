@@ -11,6 +11,7 @@ const myCollectionSchema = new mongoose.Schema({
     lighting: String,
     threatFactor: String,
     note: String,
+    gpsNumber: String,
     fsSize: Number,
     latitude: Number,
     longitude: Number,
